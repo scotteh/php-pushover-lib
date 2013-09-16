@@ -1,11 +1,21 @@
 php-pushover-lib
 ================
 
-PHP Pushover Lib is a library that interfaces with the pushover.net API.
+Allows you interface to with the Pushover.net API using your favourite language ... PHP.
 
 ## Reference
 
-https://pushover.net/api
+The official reference documentation is available at: https://pushover.net/api
+
+## Resource/Class/API Method
+
+### Message
+
+### Sound
+
+### Receipt
+
+### Validate
 
 ## Example
 
