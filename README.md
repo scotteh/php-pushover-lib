@@ -22,25 +22,28 @@ The official reference documentation is available at: https://pushover.net/api
 ``` PHP
 <?php
 
-// Autoloader: https://gist.github.com/jwage/221634
+require('vendor/autoload.php');
 
 $config = array(
-    'user' => '<user key>',
-    'token' => '<application token>',
 );
 
+$po = \PushoverLib\Pushover([
+    'userToken' => '<user key>',
+    'appToken' => '<application token>',
+]);
+
 // Fetch sounds
-$sound = new Scotteh\Pushover\Sound($config);
-$result = $sound->push();
+$result = $po->sound()->send();
 $sounds = array_keys($result['sounds']);
+var_dump($sounds);
 
-// Send message
-$message = new Scotteh\Pushover\Message($config);
-$message->setTitle('My title');
-$message->setMessage('My message example!');
-$message->setSound($sounds[0]);
-
-$result = $message->push();
+$result = $po->message([
+    'html' => 1,
+    'title' => 'My example title',
+    'message' => 'Example message <b>with some html!</b>',
+    'sound' => $sounds[0],
+])->send();
 
 var_dump($result);
+
 ```

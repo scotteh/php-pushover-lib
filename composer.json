@@ -13,12 +13,17 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "ext-curl": "*"
     },
     "autoload": {
-        "psr-0": {
-            "Scotteh\\": "src/"
+        "psr-4": {
+            "PushoverLib\\": "src/"
+        }
+    }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     }
 }
