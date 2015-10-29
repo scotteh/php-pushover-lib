@@ -20,7 +20,7 @@
         "psr-4": {
             "PushoverLib\\": "src/"
         }
-    }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
