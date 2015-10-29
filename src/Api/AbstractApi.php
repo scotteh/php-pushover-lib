@@ -3,7 +3,7 @@
 namespace PushoverLib\Api;
 
 /**
- * Message Api
+ * Abstract Api
  *
  * @package PushoverLib
  * @license MIT License
