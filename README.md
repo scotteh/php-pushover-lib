@@ -24,9 +24,6 @@ The official reference documentation is available at: https://pushover.net/api
 
 require('vendor/autoload.php');
 
-$config = array(
-);
-
 $po = \PushoverLib\Pushover([
     'userToken' => '<user key>',
     'appToken' => '<application token>',
