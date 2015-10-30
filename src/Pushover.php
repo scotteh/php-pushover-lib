@@ -12,7 +12,6 @@ class Pushover
 {
     /** @var array */
     private $config = [
-        'userToken' => null,
         'appToken' => null,
     ];
 
@@ -34,6 +33,14 @@ class Pushover
         $this->registerApi('\\PushoverLib\\Api\\ReceiptCancel');
         $this->registerApi('\\PushoverLib\\Api\\Sound');
         $this->registerApi('\\PushoverLib\\Api\\Validate');
+        $this->registerApi('\\PushoverLib\\Api\\SubscriptionMigrate');
+        $this->registerApi('\\PushoverLib\\Api\\Group');
+        $this->registerApi('\\PushoverLib\\Api\\GroupAddUser');
+        $this->registerApi('\\PushoverLib\\Api\\GroupDeleteUser');
+        $this->registerApi('\\PushoverLib\\Api\\GroupDisableUser');
+        $this->registerApi('\\PushoverLib\\Api\\GroupEnableUser');
+        $this->registerApi('\\PushoverLib\\Api\\GroupRename');
+        $this->registerApi('\\PushoverLib\\Api\\LicenseAssign');
     }
 
     /**
@@ -61,7 +68,7 @@ class Pushover
      */
     public function registerApi($class) {
         if (in_array('PushoverLib\\Api\\ApiInterface', class_implements($class))) {
-            $name = strtolower(substr($class, strrpos($class, '\\') + 1));
+            $name = lcfirst(substr($class, strrpos($class, '\\') + 1));
 
             $this->api[$name] = $class;
         }

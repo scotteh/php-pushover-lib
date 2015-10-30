@@ -51,31 +51,6 @@ abstract class AbstractApi
     }
 
     /**
-     * Get parameter
-     *
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function __get($name) {
-        if (in_array($name, self::$parameters) && isset($this->data[$name])) {
-            return $this->data[$name];
-        }
-    }
-
-    /**
-     * Set parameter
-     *
-     * @param string $name
-     * @param mixed $value
-     */
-    public function __set($name, $value) {
-        if (in_array($name, self::$parameters)) {
-            $this->data[$name] = $value;
-        }
-    }
-
-    /**
      * Get api resource
      *
      * @return string
@@ -92,24 +67,14 @@ abstract class AbstractApi
     }
 
     /**
-     * Get user token
-     *
-     * @return string
-     */
-    public function getUserToken() {
-        return $this->config['userToken'];
-    }
-
-    /**
      * Get request data
      *
      * @return array
      */
     public function getData() {
-        return array_merge($this->data, [
+        return array_merge([
             'token' => $this->getAppToken(),
-            'user' => $this->getUserToken(),
-        ]);
+        ], $this->data);
     }
 
     /**
@@ -146,11 +111,11 @@ abstract class AbstractApi
         $ch = curl_init();
         curl_setopt_array($ch, $opts);
         $result = json_decode(curl_exec($ch), true);
-        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
         if (!isset($result['status']) || !$result['status']) {
-            throw new \Exception(isset($result->errors) ? implode(', ', $result->errors) : '', $http_code);
+            throw new \Exception(isset($result['errors']) ? implode(', ', $result['errors']) : '', $httpCode);
         }
 
         return $result;

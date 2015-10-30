@@ -7,15 +7,21 @@ Allows you interface to with the Pushover.net API using your favourite language 
 
 The official reference documentation is available at: https://pushover.net/api
 
-## Resource/Class/API Method
+## Methods
 
-### Message
-
-### Sound
-
-### Receipt
-
-### Validate
+* message()
+* receipt()
+* receiptCancel()
+* sound()
+* validate()
+* subscriptionMigrate()
+* group()
+* groupAddUser()
+* groupDeleteUser()
+* groupDisableUser()
+* groupEnableUser()
+* groupRename()
+* licenseAssign()
 
 ## Example
 
@@ -25,7 +31,6 @@ The official reference documentation is available at: https://pushover.net/api
 require('vendor/autoload.php');
 
 $po = \PushoverLib\Pushover([
-    'userToken' => '<user key>',
     'appToken' => '<application token>',
 ]);
 
@@ -35,6 +40,7 @@ $sounds = array_keys($result['sounds']);
 var_dump($sounds);
 
 $result = $po->message([
+    'user' => '<user token>',
     'html' => 1,
     'title' => 'My example title',
     'message' => 'Example message <b>with some html!</b>',

@@ -13,6 +13,9 @@ class ReceiptCancel extends AbstractApi implements ApiInterface
     /** @inherit */
     protected $method = self::METHOD_POST;
 
+    /** @var string */
+    protected $receipt = '';
+
     /**
      * @inherit
      */
@@ -24,8 +27,12 @@ class ReceiptCancel extends AbstractApi implements ApiInterface
      * Set receipt parameter
      *
      * @param string $receipt
+     *
+     * @return self
      */
     public function setReceipt($receipt) {
         $this->receipt = $receipt;
+
+        return $this;
     }
 }

@@ -28,11 +28,6 @@ interface ApiInterface {
     public function getAppToken();
 
     /**
-     * @return string
-     */
-    public function getUserToken();
-
-    /**
      * @return array
      */
     public function getData();

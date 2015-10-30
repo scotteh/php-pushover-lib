@@ -15,6 +15,7 @@ class Message extends AbstractApi implements ApiInterface
 
     /** @inherit */
     protected $parameters = [
+        'user',
         'device',
         'title',
         'message',

@@ -3,35 +3,35 @@
 namespace PushoverLib\Api;
 
 /**
- * Receipt Api
+ * Group Api
  *
  * @package PushoverLib
  * @license MIT License
  */
-class Receipt extends AbstractApi implements ApiInterface
+class Group extends AbstractApi implements ApiInterface
 {
     /** @inherit */
     protected $method = self::METHOD_GET;
 
     /** @var string */
-    protected $receipt = '';
+    protected $groupKey = '';
 
     /**
      * @inherit
      */
     public function getResource() {
-        return 'receipts/' . $this->receipt;
+        return 'groups/' . $this->groupKey;
     }
 
     /**
-     * Set receipt parameter
+     * Set group key
      *
-     * @param string $receipt
+     * @param string $groupKey
      *
      * @return self
      */
-    public function setReceipt($receipt) {
-        $this->receipt = $receipt;
+    public function setGroupKey($groupKey) {
+        $this->groupKey = $groupKey;
 
         return $this;
     }

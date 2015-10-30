@@ -3,26 +3,27 @@
 namespace PushoverLib\Api;
 
 /**
- * Validate Api
+ * Subscription Migrate Api
  *
  * @package PushoverLib
  * @license MIT License
  */
-class Validate extends AbstractApi implements ApiInterface
+class SubscriptionMigrate extends AbstractApi implements ApiInterface
 {
     /** @inherit */
     protected $method = self::METHOD_POST;
 
     /** @inherit */
     protected $parameters = [
-        'user',
-        'device',
+        'subscription',
+        'device_name',
+        'sound',
     ];
 
     /**
      * @inherit
      */
     public function getResource() {
-        return 'users/validate';
+        return 'subscriptions/migrate';
     }
 }
