@@ -4,7 +4,7 @@
     "description": "Pushover.net PHP Library",
     "keywords": ["pushover", "pushover.net", "api", "php", "library", "notification"],
     "homepage": "https://github.com/scotteh/php-pushover-lib",
-    "license": "MIT License",
+    "license": "MIT",
     "authors": [
         {
             "name": "Andrew Scott",
